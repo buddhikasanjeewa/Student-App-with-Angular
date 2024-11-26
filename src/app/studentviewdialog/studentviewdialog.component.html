@@ -1,0 +1,42 @@
+<div mat-dialog-title class="dialog-title">
+  <button mat-icon-button aria-label="close dialog" style="float: right;" mat-dialog-close 
+  (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="container">
+  <div class="row">
+      <h1>Selected Student Details</h1>
+  </div>
+
+  <div class="row">
+      <h3>This is the details for  {{student[0].firstName }}   {{ student[0].lastName }}</h3>
+  
+  </div>
+  <div class="row">
+      <div class="mb-3">Student Code : {{student[0].studentCode}}</div>
+
+  </div>
+  <div class="row">
+      <div class="mb-3">Mobile        : {{student[0].mobile}}</div>
+
+  </div>
+  <div class="row">
+      <div class="mb-3">Email       : {{student[0].email}}</div>
+
+  </div>
+  <div class="row">
+      <div class="mb-3">NIC       : {{student[0].nic }}</div>
+  </div>
+  <div class="row">
+      <div class="mb-3">Date of Birth       : {{ dobstring }}</div>
+  </div>
+  <div class="row">
+      <div class="mb-3">Address      : {{student[0].address }}</div>
+  </div>
+ 
+</div>
+
+
+ 
+
