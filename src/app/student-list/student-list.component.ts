@@ -115,9 +115,9 @@ export class StudentListComponent implements OnInit, OnDestroy {
         next: (value) => {
           debugger;
           this.students = value;
-          console.log(this.students);
+          console.log(this.students[0]);
           let dialogRef = this.dialog.open(StudentviewdialogComponent, {
-            data: [this.students],
+            data: [this.students[0]],
             height: '400px',
             width: '500px',
           });

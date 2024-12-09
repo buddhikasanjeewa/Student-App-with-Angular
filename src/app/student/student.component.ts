@@ -81,18 +81,19 @@ export class StudentComponent implements OnInit, OnDestroy {
       .getStudentbyId(id, StudentCode)
       .subscribe({
         next: (value) => {
-          this.studentdata = value;
+          debugger;
+          this.studentdata = value[0];
           console.log(this.studentdata);
-          var dobdt = formatDate(value.dob, 'yyyy-MM-dd', 'en-US');
+          var dobdt = formatDate(value[0].dob, 'yyyy-MM-dd', 'en-US');
           this.StudentForm.setValue({
-            studentcode: value.studentCode,
-            firstName: value.firstName,
-            lastName: value.lastName,
-            mobile: value.mobile,
-            email: value.email,
-            NIC: value.nic,
+            studentcode: this.studentdata.studentCode,
+            firstName: this.studentdata.firstName,
+            lastName: this.studentdata.lastName,
+            mobile: this.studentdata.mobile,
+            email: this.studentdata.email,
+            NIC: this.studentdata.nic,
             Dob: dobdt,
-            address: value.address,
+            address: this.studentdata.address,
           });
         },
       });
