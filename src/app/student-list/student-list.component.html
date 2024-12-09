@@ -1,14 +1,24 @@
 <div class="example-header">
-  <mat-form-field [style.width.px]=327>
-     <!-- <input matInput (keyup)="applyFilter($event.target)" placeholder="Filter">  -->
-    <input matInput type="text" placeholder="type your Filter condition here..."  (keyup)="applyFilter($any($event.target).value)"> 
-    
+  <mat-form-field [style.width.px]="327">
+    <!-- <input matInput (keyup)="applyFilter($event.target)" placeholder="Filter">  -->
+    <input
+      matInput
+      type="text"
+      placeholder="type your Filter condition here..."
+      (keyup)="applyFilter($any($event.target).value)"
+    />
   </mat-form-field>
-  <br>
-  <button mat-flat-button style="background-color: cadetblue;" (click)="Navigate(2)">Add New</button>
-</div> 
+  <br />
+  <button
+    mat-flat-button
+    style="background-color: cadetblue"
+    (click)="Navigate(2)"
+  >
+    Add New
+  </button>
+</div>
 
-<br>
+<br />
 
 <div class="example-container mat-elevation-z8">
   <!-- <mat-form-field >
@@ -18,52 +28,76 @@
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="studentCode">
       <th mat-header-cell *matHeaderCellDef>Student Code</th>
-      <td mat-cell *matCellDef="let  row"> {{row.studentCode}} </td>
+      <td mat-cell *matCellDef="let row">{{ row.studentCode }}</td>
     </ng-container>
 
     <ng-container matColumnDef="firstName">
       <th mat-header-cell *matHeaderCellDef>First Name</th>
-      <td mat-cell *matCellDef="let  row"> {{row.firstName}} </td>
+      <td mat-cell *matCellDef="let row">{{ row.firstName }}</td>
     </ng-container>
     <ng-container matColumnDef="lastName">
       <th mat-header-cell *matHeaderCellDef>Last Name</th>
-      <td mat-cell *matCellDef="let  row"> {{row.lastName}} </td>
+      <td mat-cell *matCellDef="let row">{{ row.lastName }}</td>
     </ng-container>
     <ng-container matColumnDef="mobile">
       <th mat-header-cell *matHeaderCellDef>Mobile</th>
-      <td mat-cell *matCellDef="let  row"> {{row.mobile}} </td>
+      <td mat-cell *matCellDef="let row">{{ row.mobile }}</td>
     </ng-container>
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef>Email</th>
-      <td mat-cell *matCellDef="let  row"> {{row.email}} </td>
+      <td mat-cell *matCellDef="let row">{{ row.email }}</td>
     </ng-container>
     <ng-container matColumnDef="NIC">
       <th mat-header-cell *matHeaderCellDef>NIC</th>
-      <td mat-cell *matCellDef="let  row"> {{row.nic}} </td>
+      <td mat-cell *matCellDef="let row">{{ row.nic }}</td>
     </ng-container>
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
-      <td mat-cell *matCellDef="let row"> <button mat-icon-button matTooltip="Click to Edit" class="iconbutton"  style="color:blue;"
-          color="primary" routerLink="/Student/{{ row.id}}/{{row.studentCode }}" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Edit</th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          mat-icon-button
+          matTooltip="Click to Edit"
+          class="iconbutton"
+          style="color: blue"
+          color="primary"
+          routerLink="/Student/{{ row.id }}/{{ row.studentCode }}"
+        >
           <mat-icon>edit</mat-icon>
-        </button> </td>
+        </button>
+      </td>
     </ng-container>
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
-      <td mat-cell *matCellDef="let row , index as i"> <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" style="color:red;"
-           color="warn" (click)="deleteStudents(row.id,i,row.studentCode)">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Delete</th>
+      <td mat-cell *matCellDef="let row; index as i">
+        <button
+          mat-icon-button
+          matTooltip="Click to Delete"
+          class="iconbutton"
+          style="color: red"
+          color="warn"
+          (click)="deleteStudents(row.id, i, row.studentCode)"
+        >
           <mat-icon>delete</mat-icon>
-        </button> </td>
+        </button>
+      </td>
     </ng-container>
     <ng-container matColumnDef="view">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> View </th>
-      <td mat-cell *matCellDef="let row , index as i"> <button mat-icon-button matTooltip="Click to View" class="iconbutton" style="color:green;"
-           color="warn" (click)="openTaskDialog(row.id,row.studentCode)">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>View</th>
+      <td mat-cell *matCellDef="let row; index as i">
+        <button
+          mat-icon-button
+          matTooltip="Click to View"
+          class="iconbutton"
+          style="color: green"
+          color="warn"
+          (click)="openTaskDialog(row.id, row.studentCode)"
+        >
           <mat-icon>details</mat-icon>
-        </button> </td>
+        </button>
+      </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns:  displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
   <!-- <mat-table [dataSource]="dataSource" matSort>
     <mat-header-row></mat-header-row>
@@ -98,5 +132,7 @@
       <mat-cell *matCellDef="let row" [style.color]="row.NIC"> {{row.NIC}} </mat-cell>
     </ng-container>
   </mat-table> -->
-  <mat-paginator [pageSizeOptions]="[5, 10, 10, 10,10,10,10,10,10]"></mat-paginator>
-  </div>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 10, 10, 10, 10, 10, 10, 10]"
+  ></mat-paginator>
+</div>
