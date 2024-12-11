@@ -35,7 +35,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { StudentviewdialogComponent } from '../studentviewdialog/studentviewdialog.component';
 import { Subscription } from 'rxjs';
 
@@ -134,6 +133,7 @@ export class StudentListComponent implements OnInit, OnDestroy {
           debugger;
 
           alert('Record Succesfully deleted');
+          window.location.reload();
           this.datservice.url = 'https://localhost:7120/api/StudentApi';
           // this.router.navigate(['/contactList']);
           this.students.splice(index, 1);
