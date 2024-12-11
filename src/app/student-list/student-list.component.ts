@@ -1,25 +1,13 @@
 import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import {
-  CommonModule,
-  DATE_PIPE_DEFAULT_OPTIONS,
-  formatDate,
-} from '@angular/common';
-import {
-  ActivatedRoute,
   Router,
   RouterLink,
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
 import { DataServiceService } from '../data-service.service';
-// import { DataTablesModule } from 'angular-datatables';
-// import DataTables, { Config } from 'datatables.net';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import {
@@ -60,7 +48,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.css',
 })
-export class StudentListComponent implements OnInit, OnDestroy {
+export class StudentListComponent implements OnDestroy {
   dialog = inject(MatDialog);
 
   students: Student[] = [];
@@ -185,8 +173,5 @@ export class StudentListComponent implements OnInit, OnDestroy {
         this.setDataSource();
       },
     });
-  }
-  ngOnInit(): void {
-    // Assign the data to the data source for the table to render
   }
 }
