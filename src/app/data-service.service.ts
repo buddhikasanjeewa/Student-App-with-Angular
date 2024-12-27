@@ -3,46 +3,43 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataServiceService {
-   public url='https://localhost:7120/api/StudentApi';
-  constructor(private httpClient:HttpClient) { 
-
-  }
-  getStudents(): Observable<any>{
+  public url = 'https://localhost:7120/api/StudentApi';
+  constructor(private httpClient: HttpClient) {}
+  getStudents(): Observable<any> {
     return this.httpClient.get(this.url);
   }
-  filterStudents(clCode: any): Observable<any>{
-    return this.httpClient.get(this.url,clCode);
+  filterStudents(clCode: any): Observable<any> {
+    return this.httpClient.get(this.url, clCode);
   }
   addStudent(data: any): Observable<any> {
     debugger;
-    return this.httpClient.post<any>(this.url,data);
+    return this.httpClient.post<any>(this.url, data);
   }
 
-  getStudentbyId(id:any,studentCode:String): Observable<any>{
-    this.url=this.url+'/' +id +'/'+studentCode;
+  getStudentbyId(id: any): Observable<any> {
+    this.url = this.url + '/' + id;
     debugger;
     return this.httpClient.get(this.url, id);
   }
 
-  updateStudents(id:any,studentCode:String,data:any): Observable<any> {
-   // this.url=this.url+'/' +id +'/'+studentCode;
-   debugger;
-    return this.httpClient.put<any>(this.url,data);
+  updateStudents(id: any, data: any): Observable<any> {
+    // this.url=this.url+'/' +id +'/'+studentCode;
+    debugger;
+    return this.httpClient.put<any>(this.url, data);
   }
 
-  getStudentfromSearch(text: string,type:number): Observable<any>
-  {
+  getStudentfromSearch(text: string, type: number): Observable<any> {
     debugger;
-    this.url=this.url + '/' +text+'/'+type;
-    
+    this.url = this.url + '/' + text + '/' + type;
+
     return this.httpClient.get<any>(this.url);
   }
-  deleteStudents(id:any,index:any,studentCode:String): Observable<any> {
+  deleteStudents(id: any, index: any): Observable<any> {
     debugger;
-    this.url=this.url+'/' +id +'/'+studentCode;
+    this.url = this.url + '/' + id;
     return this.httpClient.delete<any>(this.url);
-     }
+  }
 }

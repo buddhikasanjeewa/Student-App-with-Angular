@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -35,9 +35,7 @@ export class StudentviewdialogComponent {
   student: Student[] = [];
   stucode: any;
   dobstring: string;
-  /**
-   *
-   */
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,

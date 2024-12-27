@@ -24,4 +24,7 @@
         width: 200px;
     }
 }
-  
+
+.custom-dialog-panel {
+  --mdc-dialog-container-color: red;
+}

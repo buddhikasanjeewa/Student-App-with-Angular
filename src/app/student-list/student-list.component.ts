@@ -89,34 +89,33 @@ export class StudentListComponent implements OnDestroy {
   }
   openTaskDialog(id: any, stucode: string) {
     debugger;
-    this.loadData(id, stucode);
+    this.loadData(id);
     this.datservice.url = 'https://localhost:7120/api/StudentApi';
   }
 
-  loadData(id: any, StudentCode: string) {
+  loadData(id: any) {
     debugger;
     // var id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.subscription = this.datservice
-      .getStudentbyId(id, StudentCode)
-      .subscribe({
-        next: (value) => {
-          debugger;
-          this.students = value;
-          console.log(this.students[0]);
-          let dialogRef = this.dialog.open(StudentviewdialogComponent, {
-            data: [this.students[0]],
-            height: '400px',
-            width: '500px',
-          });
-        },
-      });
+    this.subscription = this.datservice.getStudentbyId(id).subscribe({
+      next: (value) => {
+        debugger;
+        this.students = value;
+        console.log(this.students[0]);
+        let dialogRef = this.dialog.open(StudentviewdialogComponent, {
+          data: [this.students[0]],
+          height: '250px',
+          width: '500px',
+          panelClass: 'custom-dialog-panel',
+        });
+      },
+    });
   }
 
-  public deleteStudents(id: any, index: any, StudentCode: string) {
+  public deleteStudents(id: any, index: any) {
     debugger;
     if (confirm('Are you sure to delete?')) {
       this.subscription = this.datservice
-        .deleteStudents(id, index, StudentCode)
+        .deleteStudents(id, index)
         .subscribe((data: any) => {
           debugger;
 

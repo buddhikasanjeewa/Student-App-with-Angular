@@ -9,33 +9,47 @@
     <mat-icon>close</mat-icon>
   </button>
 </div>
-<div class="container">
-  <div class="row">
-    <h1>Selected Student Details</h1>
-  </div>
-
-  <div class="row">
-    <h3>
-      This is the details for {{ student[0].firstName }}
-      {{ student[0].lastName }}
-    </h3>
-  </div>
-  <div class="row">
-    <div class="mb-3">Student Code : {{ student[0].studentCode }}</div>
-  </div>
-  <div class="row">
-    <div class="mb-3">Mobile : {{ student[0].mobile }}</div>
-  </div>
-  <div class="row">
-    <div class="mb-3">Email : {{ student[0].email }}</div>
-  </div>
-  <div class="row">
-    <div class="mb-3">NIC : {{ student[0].nic }}</div>
-  </div>
-  <div class="row">
-    <div class="mb-3">Date of Birth : {{ dobstring }}</div>
-  </div>
-  <div class="row">
-    <div class="mb-3">Address : {{ student[0].address }}</div>
-  </div>
-</div>
+<table class="table table-primary">
+  <thead>
+    <tr>
+      <th colspan="4">Selected Student Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2"><b>This is the details for</b></td>
+      <td>
+        {{ student[0].firstName }}
+      </td>
+      <td>
+        {{ student[0].lastName }}
+      </td>
+    </tr>
+    <tr>
+      <td><b>Student Code</b></td>
+      <td>
+        {{ student[0].studentCode }}
+      </td>
+      <td><b>NIC</b></td>
+      <td>
+        {{ student[0].nic }}
+      </td>
+    </tr>
+    <tr>
+      <td><b>Mobile</b></td>
+      <td>
+        {{ student[0].mobile }}
+      </td>
+      <td><b>Email</b></td>
+      <td>
+        {{ student[0].email }}
+      </td>
+    </tr>
+    <tr>
+      <td><b>Date of Birth</b></td>
+      <td>{{ dobstring }}</td>
+      <td><b>Address</b></td>
+      <td>{{ student[0].address }}</td>
+    </tr>
+  </tbody>
+</table>

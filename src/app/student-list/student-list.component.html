@@ -60,7 +60,7 @@
           class="iconbutton"
           style="color: blue"
           color="primary"
-          routerLink="/Student/{{ row.id }}/{{ row.studentCode }}"
+          routerLink="/Student/{{ row.id }}"
         >
           <mat-icon>edit</mat-icon>
         </button>
@@ -75,7 +75,7 @@
           class="iconbutton"
           style="color: red"
           color="warn"
-          (click)="deleteStudents(row.id, i, row.studentCode)"
+          (click)="deleteStudents(row.id, i)"
         >
           <mat-icon>delete</mat-icon>
         </button>
@@ -99,39 +99,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-  <!-- <mat-table [dataSource]="dataSource" matSort>
-    <mat-header-row></mat-header-row>
- 
-    <ng-container matColumnDef="studentCode">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Student Code </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.studentCode}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="firstName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>First Name </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.firstName}}% </mat-cell>
-    </ng-container>
 
-    <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.lastName}}% </mat-cell>
-    </ng-container>
-
-  
-    <ng-container matColumnDef="mobile">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.mobile}} </mat-cell>
-    </ng-container>
-
- 
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-      <mat-cell *matCellDef="let row" [style.color]="row.Email"> {{row.Email}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="NIC">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> NIC </mat-header-cell>
-      <mat-cell *matCellDef="let row" [style.color]="row.NIC"> {{row.NIC}} </mat-cell>
-    </ng-container>
-  </mat-table> -->
   <mat-paginator
     [pageSizeOptions]="[5, 10, 10, 10, 10, 10, 10, 10, 10]"
   ></mat-paginator>

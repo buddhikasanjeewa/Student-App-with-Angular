@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: 'Navigation', component: NavigartionComponent },
   { path: 'StudentList', component: StudentListComponent },
   { path: 'Student', component: StudentComponent },
-  { path: 'Student/:Id/:StudentCode', component: StudentComponent },
+  { path: 'Student/:Id', component: StudentComponent },
 ];

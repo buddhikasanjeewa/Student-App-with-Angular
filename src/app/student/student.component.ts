@@ -77,26 +77,24 @@ export class StudentComponent implements OnInit, OnDestroy {
 
   loadData(id: any, StudentCode: string) {
     // var id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.subscription = this.datservice
-      .getStudentbyId(id, StudentCode)
-      .subscribe({
-        next: (value) => {
-          debugger;
-          this.studentdata = value[0];
-          console.log(this.studentdata);
-          var dobdt = formatDate(value[0].dob, 'yyyy-MM-dd', 'en-US');
-          this.StudentForm.setValue({
-            studentcode: this.studentdata.studentCode,
-            firstName: this.studentdata.firstName,
-            lastName: this.studentdata.lastName,
-            mobile: this.studentdata.mobile,
-            email: this.studentdata.email,
-            NIC: this.studentdata.nic,
-            Dob: dobdt,
-            address: this.studentdata.address,
-          });
-        },
-      });
+    this.subscription = this.datservice.getStudentbyId(id).subscribe({
+      next: (value) => {
+        debugger;
+        this.studentdata = value[0];
+        console.log(this.studentdata);
+        var dobdt = formatDate(value[0].dob, 'yyyy-MM-dd', 'en-US');
+        this.StudentForm.setValue({
+          studentcode: this.studentdata.studentCode,
+          firstName: this.studentdata.firstName,
+          lastName: this.studentdata.lastName,
+          mobile: this.studentdata.mobile,
+          email: this.studentdata.email,
+          NIC: this.studentdata.nic,
+          Dob: dobdt,
+          address: this.studentdata.address,
+        });
+      },
+    });
   }
 
   // }
@@ -160,7 +158,7 @@ export class StudentComponent implements OnInit, OnDestroy {
       } else {
         debugger;
         this.subscription = this.datservice
-          .updateStudents(this.id, this.stucode, addStudentRequest)
+          .updateStudents(this.id, addStudentRequest)
           .subscribe((data: any) => {
             this.router.navigate(['/StudentList']).then(() => {
               window.location.reload();
