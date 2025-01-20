@@ -1,4 +1,11 @@
-import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnDestroy,
+  OnInit,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {
@@ -50,6 +57,7 @@ import { Subscription } from 'rxjs';
 })
 export class StudentListComponent implements OnDestroy {
   dialog = inject(MatDialog);
+  loading = signal(true);
 
   students: Student[] = [];
   dataSource: MatTableDataSource<Student>;
@@ -90,7 +98,7 @@ export class StudentListComponent implements OnDestroy {
   openTaskDialog(id: any, stucode: string) {
     debugger;
     this.loadData(id);
-    this.datservice.url = 'https://localhost:7120/api/StudentApi';
+    this.datservice.url = 'https://localhost:7218/api/StudentApi';
   }
 
   loadData(id: any) {
@@ -121,7 +129,7 @@ export class StudentListComponent implements OnDestroy {
 
           alert('Record Succesfully deleted');
           window.location.reload();
-          this.datservice.url = 'https://localhost:7120/api/StudentApi';
+          this.datservice.url = 'https://localhost:7218/api/StudentApi';
           // this.router.navigate(['/contactList']);
           this.students.splice(index, 1);
           this.Navigate(1);
@@ -160,13 +168,16 @@ export class StudentListComponent implements OnDestroy {
       );
     };
   }
+  isLoading() {
+    return this.loading();
+  }
   getStudents() {
     debugger;
 
     this.subscription = this.datservice.getStudents().subscribe({
       next: (value) => {
         debugger;
-
+        this.loading.set(false);
         this.students = value;
         console.log(this.students);
         this.setDataSource();

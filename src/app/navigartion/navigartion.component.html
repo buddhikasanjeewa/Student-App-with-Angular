@@ -1,28 +1,25 @@
 <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-3 col-3">
-            <div class="logo-container">
-               
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-3">
+        <div class="logo-container"></div>
+      </div>
+      <div class="col-md-9 col-sm-9 col-9 text-end">
+        <div class="menu-icon" (click)="openMenu()">
+          <i class="{{ menu_icon }}"></i>
         </div>
-        <div class="col-md-9 col-sm-9 col-9 text-end">
-            <div class="menu-icon" (click)="openMenu()">
-                <i class="{{menu_icon}}"></i>
-            </div>
-            <div class="desktop_menu" [class.mobile_menu]="menuValue">
-                <ul>
-                    <!-- <li  routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</li>
-                    <li  routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</li>
-                    <li  routerLink="/About" routerLinkActive="active" ariaCurrentWhenActive="page">About</li> -->
-                
-                    <li routerLink="/StudentList" routerLinkActive="active" ariaCurrentWhenActive="page">Student List</li>
-                 
-              
-                   
-                </ul>
-            </div>
+        <div class="desktop_menu" [class.mobile_menu]="menuValue">
+          <ul>
+            <li
+              routerLink="/StudentList"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+            >
+              Student List
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+  </div>
 </header>
