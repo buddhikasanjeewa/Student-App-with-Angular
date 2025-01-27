@@ -32,6 +32,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { StudentviewdialogComponent } from '../studentviewdialog/studentviewdialog.component';
 import { Subscription } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-student-list',
@@ -98,7 +99,8 @@ export class StudentListComponent implements OnDestroy {
   openTaskDialog(id: any, stucode: string) {
     debugger;
     this.loadData(id);
-    this.datservice.url = 'https://localhost:7218/api/StudentApi';
+    // this.datservice.url = 'https://localhost:7218/api/StudentApi';
+    this.datservice.stuApiUrl = environment.studentApiUrl;
   }
 
   loadData(id: any) {
@@ -129,7 +131,8 @@ export class StudentListComponent implements OnDestroy {
 
           alert('Record Succesfully deleted');
           window.location.reload();
-          this.datservice.url = 'https://localhost:7218/api/StudentApi';
+          this.datservice.stuApiUrl = environment.studentApiUrl;
+          // this.datservice.url = 'https://localhost:7218/api/StudentApi';
           // this.router.navigate(['/contactList']);
           this.students.splice(index, 1);
           this.Navigate(1);
