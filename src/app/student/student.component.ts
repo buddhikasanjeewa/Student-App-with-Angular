@@ -18,6 +18,7 @@ import {
 } from '@angular/router';
 import { DataServiceService } from '../data-service.service';
 import { Subscription } from 'rxjs';
+import { AccordianComponent } from '../widgets/accordian/accordian.component';
 
 @Component({
   selector: 'app-student',
@@ -29,9 +30,10 @@ import { Subscription } from 'rxjs';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    AccordianComponent,
   ],
   templateUrl: './student.component.html',
-  styleUrl: './student.component.css',
+  styleUrls: ['./student.component.css'],
 })
 export class StudentComponent implements OnInit, OnDestroy {
   isFormSubmitted: boolean = false;

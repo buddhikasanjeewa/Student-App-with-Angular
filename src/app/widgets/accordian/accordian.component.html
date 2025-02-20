@@ -1,0 +1,26 @@
+<div class="card mt-2">
+  <div class="card-header text-white" [class]="accoColor">
+    <div class="row">
+      <div class="col-6">
+        {{ headerText }}
+      </div>
+      <div class="col-6 text-end">
+        <i
+          *ngIf="isAccordianOpen"
+          class="fa-solid fa-angle-down"
+          (click)="isAccordianOpen = false"
+        ></i>
+        <i
+          *ngIf="!isAccordianOpen"
+          class="fa-solid fa-angle-up"
+          (click)="isAccordianOpen = true"
+        ></i>
+      </div>
+    </div>
+  </div>
+  <div class="card-body" *ngIf="isAccordianOpen">
+    <ng-container>
+      <ng-content></ng-content>
+    </ng-container>
+  </div>
+</div>

@@ -1,85 +1,232 @@
-<h1  style="margin-left: 120px;">Student Form</h1>
-
-<form id="student_form" name="student_form" method="post" [formGroup]="StudentForm" >
-    <div class="container">
+<h1 style="margin-left: 120px">Student Form</h1>
+<!-- <app-accordian [headerText]="'Student'"> -->
+<form
+  id="student_form"
+  name="student_form"
+  method="post"
+  [formGroup]="StudentForm"
+>
+  <div class="container">
     <div class="col-3">
-        <button class="btn btn-md btn-secondary"  type="button" (click)="onNavigate()">
-            <i class="fa fa-user"></i>
-            Back</button>
+      <button
+        class="btn btn-md btn-secondary"
+        type="button"
+        (click)="onNavigate()"
+      >
+        <i class="fa fa-user"></i>
+        Back
+      </button>
     </div>
-    <input type="hidden" id="StudentId" formControlName="Id">
+    <input type="hidden" id="StudentId" formControlName="Id" />
     <div class="mb-2 row">
-        <div class="col">
-            <label for="StudentCode">Student Code</label>
-            <input type="text" required maxlength="10" class="form-control" id="student_code" name="student_code" formControlName="studentcode"    >
-      <div class="text-danger" *ngIf="StudentForm.controls['studentcode'].invalid  && (isFormSubmitted ||StudentForm.controls['studentcode'].touched||StudentForm.controls['studentcode'].dirty)">
-        <span *ngIf="StudentForm.controls['studentcode'].errors?.['required']">Student Code is Required</span>
-        <span *ngIf="StudentForm.controls['studentcode'].errors?.['maxlength']">Student Code Should not exceed 10 characters</span>
+      <div class="col">
+        <label for="StudentCode">Student Code</label>
+        <input
+          type="text"
+          required
+          maxlength="10"
+          class="form-control"
+          id="student_code"
+          name="student_code"
+          formControlName="studentcode"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            StudentForm.controls['studentcode'].invalid &&
+            (isFormSubmitted ||
+              StudentForm.controls['studentcode'].touched ||
+              StudentForm.controls['studentcode'].dirty)
+          "
+        >
+          <span *ngIf="StudentForm.controls['studentcode'].errors?.['required']"
+            >Student Code is Required</span
+          >
+          <span
+            *ngIf="StudentForm.controls['studentcode'].errors?.['maxlength']"
+            >Student Code Should not exceed 10 characters</span
+          >
+        </div>
       </div>
-        </div>
-        <div class="col"></div>
+      <div class="col"></div>
     </div>
     <div class="mb-2 row">
-        <div class="col">
-            <label for="FirstName">First Name</label>
-            <input type="text" required maxlength="50" class="form-control" id="first_name" name="first_name" formControlName="firstName"   >
-      <div class="text-danger" *ngIf="StudentForm.controls['firstName'].invalid  && (isFormSubmitted ||StudentForm.controls['firstName'].touched||StudentForm.controls['firstName'].dirty)">
-        <span *ngIf="StudentForm.controls['firstName'].errors?.['required']">This is Required</span>
+      <div class="col">
+        <label for="FirstName">First Name</label>
+        <input
+          type="text"
+          required
+          maxlength="50"
+          class="form-control"
+          id="first_name"
+          name="first_name"
+          formControlName="firstName"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            StudentForm.controls['firstName'].invalid &&
+            (isFormSubmitted ||
+              StudentForm.controls['firstName'].touched ||
+              StudentForm.controls['firstName'].dirty)
+          "
+        >
+          <span *ngIf="StudentForm.controls['firstName'].errors?.['required']"
+            >This is Required</span
+          >
+        </div>
       </div>
+      <div class="col">
+        <label>Last Name</label>
+        <input
+          type="text"
+          required
+          maxlength="50"
+          class="form-control"
+          id="last_name"
+          name="last_name"
+          formControlName="lastName"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            StudentForm.controls['lastName'].invalid &&
+            (isFormSubmitted ||
+              StudentForm.controls['lastName'].touched ||
+              StudentForm.controls['lastName'].dirty)
+          "
+        >
+          <span *ngIf="StudentForm.controls['lastName'].errors?.['required']"
+            >This is Required</span
+          >
+          <span *ngIf="StudentForm.controls['lastName'].errors?.['minlength']"
+            >Minimum 4 Characters Required</span
+          >
         </div>
-        <div class="col">
-            <label>Last Name</label>
-            <input type="text" required maxlength="50" class="form-control" id="last_name" name="last_name" formControlName="lastName" >
-            <div class="text-danger" *ngIf="StudentForm.controls['lastName'].invalid && ( isFormSubmitted ||StudentForm.controls['lastName'].touched||StudentForm.controls['lastName'].dirty)">
-                <span *ngIf="StudentForm.controls['lastName'].errors?.['required']">This is Required</span>
-                <span *ngIf="StudentForm.controls['lastName'].errors?.['minlength']">Minimum 4 Characters Required</span>
-              </div>
-        </div>
+      </div>
     </div>
     <div class="mb-2 row">
-        <div class="col">
-            <label for="email_addr">Email address</label>
-            <input type="email" required maxlength="50" class="form-control" id="mail_addr" name="email_addr" formControlName="email"
-                placeholder="name@example.com">
-                 <div class="text-danger" *ngIf="StudentForm.controls['email'].invalid   &&  ( isFormSubmitted || StudentForm.controls['email'].touched||StudentForm.controls['email'].dirty)">
-                    <span *ngIf="StudentForm.controls['email'].errors?.['required']">Email is Required</span>
-                    <span *ngIf="StudentForm.controls['email'].errors?.['email']">Invalid Email</span>
-                  </div> 
+      <div class="col">
+        <label for="email_addr">Email address</label>
+        <input
+          type="email"
+          required
+          maxlength="50"
+          class="form-control"
+          id="mail_addr"
+          name="email_addr"
+          formControlName="email"
+          placeholder="name@example.com"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            StudentForm.controls['email'].invalid &&
+            (isFormSubmitted ||
+              StudentForm.controls['email'].touched ||
+              StudentForm.controls['email'].dirty)
+          "
+        >
+          <span *ngIf="StudentForm.controls['email'].errors?.['required']"
+            >Email is Required</span
+          >
+          <span *ngIf="StudentForm.controls['email'].errors?.['email']"
+            >Invalid Email</span
+          >
         </div>
-        <div class="col">
-            <label for="mobile_input">Moible</label>
-            <input type="text" required maxlength="50" class="form-control" id="mobile_input" name="mobile"  formControlName="mobile" 
-                >
-                <div class="text-danger" *ngIf="StudentForm.controls['mobile'].invalid   && (isFormSubmitted ||StudentForm.controls['mobile'].touched||StudentForm.controls['mobile'].dirty)">
-                    <span *ngIf="StudentForm.controls['mobile'].errors?.['required']">Mobile is Required</span>
-                  </div>
-            </div>
-            <div class="col">
-                <label for="NIC">NIC</label>
-            <input type="text" required maxlength="20" class="form-control" id="nic" name="nic"  formControlName="NIC" 
-                >
-                <div class="text-danger" *ngIf="StudentForm.controls['NIC'].invalid   && (isFormSubmitted ||StudentForm.controls['NIC'].touched||StudentForm.controls['NIC'].dirty)">
-                    <span *ngIf="StudentForm.controls['NIC'].errors?.['required']">NIC is Required</span>
-                  </div>
-            </div>
-            </div>
-       
-        <div class="mb-2 row">
-            <div class="col">
-                <label for="DOB">Date of Birth</label>
-                <input type="date"  maxlength="20" class="form-control" id="dob" name="dob"    formControlName="Dob" >
-       
-            </div>
-            <div class="col">
-                <label for="Address">Address</label>
-                <input type="text"  maxlength="250" class="form-control" id="adddress" name="address"    formControlName="address" >
-       
-            </div>
-            </div>  
-    
+      </div>
+      <div class="col">
+        <label for="mobile_input">Moible</label>
+        <input
+          type="text"
+          required
+          maxlength="50"
+          class="form-control"
+          id="mobile_input"
+          name="mobile"
+          formControlName="mobile"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            StudentForm.controls['mobile'].invalid &&
+            (isFormSubmitted ||
+              StudentForm.controls['mobile'].touched ||
+              StudentForm.controls['mobile'].dirty)
+          "
+        >
+          <span *ngIf="StudentForm.controls['mobile'].errors?.['required']"
+            >Mobile is Required</span
+          >
+        </div>
+      </div>
+      <div class="col">
+        <label for="NIC">NIC</label>
+        <input
+          type="text"
+          required
+          maxlength="20"
+          class="form-control"
+          id="nic"
+          name="nic"
+          formControlName="NIC"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            StudentForm.controls['NIC'].invalid &&
+            (isFormSubmitted ||
+              StudentForm.controls['NIC'].touched ||
+              StudentForm.controls['NIC'].dirty)
+          "
+        >
+          <span *ngIf="StudentForm.controls['NIC'].errors?.['required']"
+            >NIC is Required</span
+          >
+        </div>
+      </div>
+    </div>
 
-    <button type="button"  class="btn btn-primary px-4 btn-lg" (click)="onFormSubmit()">Save</button>
-    <button type="button" style="margin-left: 10px;" class="btn btn-danger px-4 btn-lg" (click)="onClear()">Clear</button>
-</div>
+    <div class="mb-2 row">
+      <div class="col">
+        <label for="DOB">Date of Birth</label>
+        <input
+          type="date"
+          maxlength="20"
+          class="form-control"
+          id="dob"
+          name="dob"
+          formControlName="Dob"
+        />
+      </div>
+      <div class="col">
+        <label for="Address">Address</label>
+        <input
+          type="text"
+          maxlength="250"
+          class="form-control"
+          id="adddress"
+          name="address"
+          formControlName="address"
+        />
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-primary px-4 btn-lg"
+      (click)="onFormSubmit()"
+    >
+      Save
+    </button>
+    <button
+      type="button"
+      style="margin-left: 10px"
+      class="btn btn-danger px-4 btn-lg"
+      (click)="onClear()"
+    >
+      Clear
+    </button>
+  </div>
 </form>
-
+<!-- </app-accordian> -->
