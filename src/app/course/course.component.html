@@ -1,4 +1,4 @@
-<app-accordian [headerText]="'Course Types'" [accoColor]="'bg-primary'">
+<!-- <app-accordian [headerText]="'Course Types'" [accoColor]="'bg-primary'">
   <div class="row">
     <div class="col-6">Course 1</div>
     <div class="col-6">Course 2</div>
@@ -8,4 +8,14 @@
   <div class="row">
     <div class="col-6">Course Details</div>
   </div>
-</app-accordian>
+</app-accordian> -->
+<div class="card" *ngFor="let course of courses; let i = index">
+  <app-accordian
+    [headerText]="course.courseTypeName"
+    [accoColor]="'bg-secondary'"
+  >
+    <div class="card-body">
+      {{ course.courseTypeDescription }}
+    </div>
+  </app-accordian>
+</div>

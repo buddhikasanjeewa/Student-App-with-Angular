@@ -9,6 +9,7 @@ import { environment } from '../environments/environment.development';
 export class DataServiceService {
   // public url = 'https://localhost:7120/api/StudentApi';
   public stuApiUrl = environment.studentApiUrl;
+  public courseTypeApiUrl = environment.courseApiUrl;
   constructor(private httpClient: HttpClient) {}
   getStudents(): Observable<any> {
     return this.httpClient.get(this.stuApiUrl);
@@ -43,5 +44,9 @@ export class DataServiceService {
     debugger;
     this.stuApiUrl = this.stuApiUrl + '/' + id;
     return this.httpClient.delete<any>(this.stuApiUrl);
+  }
+  // getCourseTypes
+  getCourseType(): Observable<any> {
+    return this.httpClient.get(this.courseTypeApiUrl);
   }
 }
